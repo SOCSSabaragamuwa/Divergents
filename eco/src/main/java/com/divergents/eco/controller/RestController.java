@@ -1,6 +1,6 @@
 package com.divergents.eco.controller;
 
-import com.divergents.eco.model.Error;
+
 import com.divergents.eco.model.Officer;
 import com.divergents.eco.model.User;
 import com.divergents.eco.service.IEcoService;
@@ -10,11 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 import javax.validation.Valid;
-import java.util.List;
+
 
 
 @org.springframework.web.bind.annotation.RestController
