@@ -1,6 +1,7 @@
 package com.divergents.eco.controller;
 
 import com.divergents.eco.model.Error;
+import com.divergents.eco.model.Officer;
 import com.divergents.eco.model.User;
 import com.divergents.eco.service.IEcoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @org.springframework.web.bind.annotation.RestController
@@ -26,10 +29,17 @@ public class RestController {
     IEcoService iEcoService;
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
-        public ResponseEntity<User> AddNewUser(@Valid @RequestBody User user){
+    public ResponseEntity<User> AddNewUser(@Valid @RequestBody User user){
 
         return new ResponseEntity<>(iEcoService.AddNewUser(user), HttpStatus.CREATED);
 
+    }
+
+
+
+    @RequestMapping(value = "/officers", method = RequestMethod.POST)
+    public ResponseEntity<Officer> AddNewOfficer(@Valid @RequestBody Officer officer) {
+        return new ResponseEntity<>(iEcoService.AddNewOfficer(officer), HttpStatus.CREATED);
     }
 }
 
