@@ -3,6 +3,8 @@ package com.divergents.eco.service;
 import com.divergents.eco.generator.PwdGenerator;
 import com.divergents.eco.model.User;
 import com.divergents.eco.model.repository.UserJdbcRepository;
+import com.divergents.eco.sms.SmsSender;
+import org.springframework.beans.factory.SmartFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class EcoService implements IEcoService{
 
     @Autowired
     UserJdbcRepository userRepo;
+
+    @Autowired
+    SmsSender smsSender;
 
     @Autowired
     PwdGenerator pwdGenerator;
@@ -31,6 +36,7 @@ public class EcoService implements IEcoService{
                     if (user.getPassword() == null) {
                         password = pwdGenerator.generatePassayPassword();
                         user.setPassword(password);
+                        smsSender.sendSms(user.getMobile(),password);
                     }
                     userRepo.addUser(user);
                     return user;
