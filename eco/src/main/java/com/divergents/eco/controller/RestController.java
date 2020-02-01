@@ -27,8 +27,12 @@ public class RestController {
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
         public ResponseEntity<User> AddNewUser(@Valid @RequestBody User user){
-
-        return new ResponseEntity<>(iEcoService.AddNewUser(user), HttpStatus.CREATED);
+        User user1=iEcoService.AddNewUser(user);
+        if(user1 == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else {
+            return new ResponseEntity<>(iEcoService.AddNewUser(user), HttpStatus.CREATED);
+        }
 
     }
 }

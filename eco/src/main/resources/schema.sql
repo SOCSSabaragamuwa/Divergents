@@ -1,6 +1,6 @@
 create table user(
-user_id int auto_increment NOT NULL PRIMARY KEY,
+id int auto_increment NOT NULL PRIMARY KEY,
 nic varchar(255),
-mobile int,
+mobile varchar(255),
 password varchar(255)
 );
