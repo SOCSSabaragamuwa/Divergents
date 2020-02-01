@@ -1,6 +1,9 @@
 package com.divergents.eco.service;
 
+import com.divergents.eco.model.Officer;
+
 import com.divergents.eco.generator.PwdGenerator;
+
 import com.divergents.eco.model.User;
 import com.divergents.eco.model.repository.UserJdbcRepository;
 import com.divergents.eco.sms.SmsSender;
@@ -8,8 +11,12 @@ import org.springframework.beans.factory.SmartFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 @Service
 public class EcoService implements IEcoService{
@@ -75,4 +82,8 @@ public class EcoService implements IEcoService{
         }
         return false;
     }
+
+    @Override
+    public Officer AddNewOfficer(Officer officer) { return null; }
+
 }
