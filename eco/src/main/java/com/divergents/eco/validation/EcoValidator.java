@@ -31,8 +31,11 @@ public class EcoValidator {
             erroObj.setMessage(error.getDefaultMessage());
             if(fieldName.equalsIgnoreCase("nic")){
                 erroObj.setDeveloperMessage(CustomMessage.nicDeveMessage);
-            }else{
+            }else if(fieldName.equalsIgnoreCase("mobile")){
                 erroObj.setDeveloperMessage(CustomMessage.mobileDevMessage);
+            }
+            else if(fieldName.equalsIgnoreCase("password")){
+                erroObj.setDeveloperMessage(CustomMessage.pwdDevMessage);
             }
         }
 

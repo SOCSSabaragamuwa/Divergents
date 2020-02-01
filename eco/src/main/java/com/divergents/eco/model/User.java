@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class User {
@@ -18,6 +19,7 @@ public class User {
     @NotBlank(message = "Mobile no is not set")
     private String mobile;
 
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "Password complexity requirement not met")
     private String password;
 
     public User(long id, @NotBlank(message = "Name is mandatory") String nic, @NotBlank(message = "Email is mandatory") String mobile, String password) {
