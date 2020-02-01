@@ -7,10 +7,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
-@Entity
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private long id;
 
     @NotBlank(message = "Nic no is not set")
@@ -27,6 +25,9 @@ public class User {
         this.nic = nic;
         this.mobile = mobile;
         this.password = password;
+    }
+
+    public User() {
     }
 
     @Override
